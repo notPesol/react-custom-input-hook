@@ -29,28 +29,18 @@ const useInput = (validateValue = defaultValidateValue) => {
     isTouch: false,
   });
 
-  // const [enteredValue, setEnteredValue] = useState("");
-  // const [isTouched, setIsTouch] = useState(false);
-
-  // const valueIsValid = validateValue(enteredValue);
-  // const hasError = !valueIsValid && isTouched;
-
   const valueIsValid = validateValue(state.value);
   const hasError = !valueIsValid && state.isTouch;
 
   const valueChangeHandler = (event) => {
-    // setEnteredValue(event.target.value);
     dispathState({ type: "CHANGE", value: event.target.value });
   };
 
   const inputBlurHandler = (event) => {
-    // setIsTouch(true);
     dispathState({ type: "BLUR" });
   };
 
   const reset = () => {
-    // setEnteredValue("");
-    // setIsTouch(false);
     dispathState({ type: "RESET" });
   };
 
